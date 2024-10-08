@@ -34,7 +34,7 @@ The Competition Economics Calculator is a versatile tool designed to assist in a
 The PCM measures a firm's ability to set prices above marginal cost, reflecting its market power.
 
 #### **Formula:**
-\[ PCM = rac{P - MC}{P} \]
+![image](https://github.com/user-attachments/assets/071390c5-8ca5-4e0f-9cbb-450d056afe0a)
 Where:
 - \( P \) is the Price.
 - \( MC \) is the Marginal Cost.
@@ -50,7 +50,8 @@ Where:
 The Lerner Index quantifies a firm's monopoly power by comparing price and marginal cost.
 
 #### **Formula:**
-\[ Lerner\ Index = rac{P - MC}{P} \]
+![image](https://github.com/user-attachments/assets/bf2e0515-2ec9-49be-b80f-e17d232ae9ed)
+
 
 #### **How to Use:**
 1. Input the **Price** (P).
@@ -63,8 +64,8 @@ The Lerner Index quantifies a firm's monopoly power by comparing price and margi
 The Profit Margin measures how much of a company’s revenue translates into profit.
 
 #### **Formula:**
-\[ Profit\ Margin = \left( rac{Net\ Profit}{Total\ Revenue} 
-ight) 	imes 100 \]
+![image](https://github.com/user-attachments/assets/1fcc2bc4-5622-4456-b921-116aad716644)
+
 
 #### **How to Use:**
 1. Input the **Net Profit**.
@@ -77,9 +78,8 @@ ight) 	imes 100 \]
 HHI measures market concentration, indicating the level of competition within a market.
 
 #### **Formula:**
-\[ HHI = \sum_{i=1}^{n} s_i^2 \]
-Where:
-- \( s_i \) is the market share of firm \( i \).
+![image](https://github.com/user-attachments/assets/30985036-bb33-49ef-927a-c7e3164a4bb6)
+
 
 #### **How to Use:**
 1. Enter the market shares of all firms.
@@ -91,8 +91,8 @@ Where:
 ROA indicates how efficiently a company uses its assets to generate profit.
 
 #### **Formula:**
-\[ ROA = \left( rac{Net\ Income}{Total\ Assets} 
-ight) 	imes 100 \]
+![image](https://github.com/user-attachments/assets/cc03ee23-1cdd-42dd-8d35-0e03ee73e4f6)
+
 
 #### **How to Use:**
 1. Input the **Net Income**.
@@ -105,8 +105,8 @@ ight) 	imes 100 \]
 ROE measures a company’s profitability relative to shareholders’ equity.
 
 #### **Formula:**
-\[ ROE = \left( rac{Net\ Income}{Shareholders\ Equity} 
-ight) 	imes 100 \]
+![image](https://github.com/user-attachments/assets/ce724716-16b1-400e-acb7-44ea092cdf1f)
+
 
 #### **How to Use:**
 1. Input the **Net Income**.
@@ -119,7 +119,8 @@ ight) 	imes 100 \]
 This metric measures how the demand for one good responds to the price change of another.
 
 #### **Formula:**
-\[ Cross-Price\ Elasticity = rac{\Delta Q_x / Q_x}{\Delta P_y / P_y} \]
+![image](https://github.com/user-attachments/assets/97356ca3-1a6e-4613-9d91-2b695538118c)
+
 
 #### **How to Use:**
 1. Input the **Change in Quantity** of Good X.
@@ -134,7 +135,8 @@ This metric measures how the demand for one good responds to the price change of
 EVA measures the value a company generates from funds invested in it, after accounting for the cost of capital.
 
 #### **Formula:**
-\[ EVA = NOPAT - (Capital 	imes WACC) \]
+![image](https://github.com/user-attachments/assets/fd428472-19b4-42a2-bde4-144420d94eb7)
+
 
 #### **How to Use:**
 1. Input the **Net Operating Profit After Taxes (NOPAT)**.
