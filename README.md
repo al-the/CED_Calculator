@@ -1,7 +1,7 @@
 
 # Competition Economics Calculator
 
-This project provides a set of calculators for competition economics and financial analysis. Each calculator allows users to input relevant data and get meaningful results to better understand market dynamics and firm performance.
+This project that aims to empower regulators and economists with the tools to make data-driven, informed decisions that foster fair competition and enhance market transparency. By providing accessible, intuitive calculators, we aim to democratize competition analysis, making it easy for anyone to measure key economic indicators and understand market dynamics..
 
 ---
 
@@ -63,7 +63,8 @@ The Lerner Index quantifies a firm's monopoly power by comparing price and margi
 The Profit Margin measures how much of a company’s revenue translates into profit.
 
 #### **Formula:**
-\[ Profit\ Margin = \left( rac{Net\ Profit}{Total\ Revenue} ight) 	imes 100 \]
+\[ Profit\ Margin = \left( rac{Net\ Profit}{Total\ Revenue} 
+ight) 	imes 100 \]
 
 #### **How to Use:**
 1. Input the **Net Profit**.
@@ -90,7 +91,8 @@ Where:
 ROA indicates how efficiently a company uses its assets to generate profit.
 
 #### **Formula:**
-\[ ROA = \left( rac{Net\ Income}{Total\ Assets} ight) 	imes 100 \]
+\[ ROA = \left( rac{Net\ Income}{Total\ Assets} 
+ight) 	imes 100 \]
 
 #### **How to Use:**
 1. Input the **Net Income**.
@@ -103,7 +105,8 @@ ROA indicates how efficiently a company uses its assets to generate profit.
 ROE measures a company’s profitability relative to shareholders’ equity.
 
 #### **Formula:**
-\[ ROE = \left( rac{Net\ Income}{Shareholders\ Equity} ight) 	imes 100 \]
+\[ ROE = \left( rac{Net\ Income}{Shareholders\ Equity} 
+ight) 	imes 100 \]
 
 #### **How to Use:**
 1. Input the **Net Income**.
