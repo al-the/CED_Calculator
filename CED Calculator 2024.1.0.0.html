@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Economics Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .header {
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+        .header h2 {
+            font-size: 1.5em;
+            color: gray;
+            margin-top: 5px;
+        }
+        .calculator-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: white;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .calculator-container input,
+        .calculator-container select,
+        .calculator-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+        .calculator-container button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .calculator-container button:hover {
+            background-color: #45a049;
+        }
+        .explanation {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #333;
+        }
+        .citations {
+            margin-top: 20px;
+            font-size: 0.9em;
+            text-align: left;
+            color: #555;
+        }
+        .citations h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Malaysia Competition Commission</h1>
+        <h2>Competition Economic Division</h2>
+    </div>
+
+    <div class="calculator-container">
+        <h2>Competition Economics Calculator</h2>
+        <label for="calculation-type">Select Calculation Type:</label>
+        <select id="calculation-type" onchange="changeCalculator()">
+            <option value="price-cost-margin">Price-Cost Margin (PCM)</option>
+            <option value="lerner-index">Lerner Index</option>
+            <option value="profit-margin">Profit Margin</option>
+            <option value="hhi">Herfindahl-Hirschman Index (HHI)</option>
+            <option value="roa">Return on Assets (ROA)</option>
+            <option value="roe">Return on Equity (ROE)</option>
+            <option value="cross-price-elasticity">Cross-Price Elasticity</option>
+            <option value="eva">Economic Value Added (EVA)</option>
+        </select>
+
+        <div id="price-cost-margin" class="calculator">
+            <h3>Price-Cost Margin (PCM)</h3>
+            <input type="number" id="price" placeholder="Enter Price (P)" />
+            <input type="number" id="cost" placeholder="Enter Marginal Cost (MC)" />
+            <button onclick="calculatePCM()">Calculate PCM</button>
+            <p id="pcm-result"></p>
+            <p class="explanation" id="pcm-explanation"></p>
+        </div>
+
+        <div id="lerner-index" class="calculator" style="display:none;">
+            <h3>Lerner Index</h3>
+            <input type="number" id="price-li" placeholder="Enter Price (P)" />
+            <input type="number" id="cost-li" placeholder="Enter Marginal Cost (MC)" />
+            <button onclick="calculateLerner()">Calculate Lerner Index</button>
+            <p id="lerner-result"></p>
+            <p class="explanation" id="lerner-explanation"></p>
+        </div>
+
+        <div id="profit-margin" class="calculator" style="display:none;">
+            <h3>Profit Margin</h3>
+            <input type="number" id="net-profit" placeholder="Enter Net Profit" />
+            <input type="number" id="total-revenue" placeholder="Enter Total Revenue" />
+            <button onclick="calculateProfitMargin()">Calculate Profit Margin</button>
+            <p id="profit-margin-result"></p>
+            <p class="explanation" id="profit-margin-explanation"></p>
+        </div>
+
+        <div id="hhi" class="calculator" style="display:none;">
+            <h3>Herfindahl-Hirschman Index (HHI)</h3>
+            <input type="text" id="market-shares" placeholder="Enter Market Shares (comma separated)" />
+            <button onclick="calculateHHI()">Calculate HHI</button>
+            <p id="hhi-result"></p>
+            <p class="explanation" id="hhi-explanation"></p>
+        </div>
+
+        <div id="roa" class="calculator" style="display:none;">
+            <h3>Return on Assets (ROA)</h3>
+            <input type="number" id="net-income" placeholder="Enter Net Income" />
+            <input type="number" id="total-assets" placeholder="Enter Total Assets" />
+            <button onclick="calculateROA()">Calculate ROA</button>
+            <p id="roa-result"></p>
+            <p class="explanation" id="roa-explanation"></p>
+        </div>
+
+        <div id="roe" class="calculator" style="display:none;">
+            <h3>Return on Equity (ROE)</h3>
+            <input type="number" id="net-income-roe" placeholder="Enter Net Income" />
+            <input type="number" id="shareholder-equity" placeholder="Enter Shareholder's Equity" />
+            <button onclick="calculateROE()">Calculate ROE</button>
+            <p id="roe-result"></p>
+            <p class="explanation" id="roe-explanation"></p>
+        </div>
+
+        <div id="cross-price-elasticity" class="calculator" style="display:none;">
+            <h3>Cross-Price Elasticity of Demand</h3>
+            <input type="number" id="change-in-quantity" placeholder="Enter Change in Quantity of Good X" />
+            <input type="number" id="quantity-x" placeholder="Enter Quantity of Good X" />
+            <input type="number" id="change-in-price" placeholder="Enter Change in Price of Good Y" />
+            <input type="number" id="price-y" placeholder="Enter Price of Good Y" />
+            <button onclick="calculateCrossPriceElasticity()">Calculate Cross-Price Elasticity</button>
+            <p id="cross-price-elasticity-result"></p>
+            <p class="explanation" id="cross-price-elasticity-explanation"></p>
+        </div>
+
+        <div id="eva" class="calculator" style="display:none;">
+            <h3>Economic Value Added (EVA)</h3>
+            <input type="number" id="nopat" placeholder="Enter Net Operating Profit After Taxes (NOPAT)" />
+            <input type="number" id="capital" placeholder="Enter Capital Invested" />
+            <input type="number" id="wacc" placeholder="Enter Weighted Average Cost of Capital (WACC)" />
+            <button onclick="calculateEVA()">Calculate EVA</button>
+            <p id="eva-result"></p>
+            <p class="explanation" id="eva-explanation"></p>
+        </div>
+
+        <div class="citations">
+            <h3>References :</h3>
+            <ul>
+                <li><strong>Price-Cost Margin (PCM):</strong> Varian, H. R. (1992). *Microeconomic Analysis*. 3rd ed. W.W. Norton & Company.</li>
+                <li><strong>Lerner Index:</strong> Lerner, A. P. (1934). *The Concept of Monopoly and the Measurement of Monopoly Power*. *The Review of Economic Studies*, 1(3), pp.157-175.</li>
+                <li><strong>Profit Margin:</strong> Ross, S.A., Westerfield, R.W., and Jaffe, J. (2012). *Corporate Finance*. 10th ed. McGraw-Hill/Irwin.</li>
+                <li><strong>Herfindahl-Hirschman Index (HHI):</strong> Hirschman, A. O. (1964). *The Paternity of an Index*. *The American Economic Review*, 54(5), pp.761-762.</li>
+                <li><strong>Return on Assets (ROA):</strong> Brigham, E.F. and Ehrhardt, M.C. (2011). *Financial Management: Theory & Practice*. 13th ed. South-Western Cengage Learning.</li>
+                <li><strong>Return on Equity (ROE):</strong> Higgins, R.C. (2009). *Analysis for Financial Management*. 9th ed. McGraw-Hill/Irwin.</li>
+                <li><strong>Cross-Price Elasticity:</strong> Pindyck, R.S. and Rubinfeld, D.L. (2009). *Microeconomics*. 7th ed. Pearson.</li>
+                <li><strong>Economic Value Added (EVA):</strong> Stern Stewart & Co. (1991). *The Quest for Value: The EVA Management Guide*. Wiley.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function changeCalculator() {
+            const selectedValue = document.getElementById("calculation-type").value;
+            document.querySelectorAll('.calculator').forEach(calculator => {
+                calculator.style.display = 'none';
+            });
+            document.getElementById(selectedValue).style.display = 'block';
+        }
+
+        function calculatePCM() {
+            const price = parseFloat(document.getElementById('price').value);
+            const cost = parseFloat(document.getElementById('cost').value);
+            if (!isNaN(price) && !isNaN(cost) && price > 0) {
+                const pcm = (price - cost) / price;
+                document.getElementById('pcm-result').textContent = 'Price-Cost Margin: ' + pcm.toFixed(2);
+                document.getElementById('pcm-explanation').textContent = 'This result shows how much a firm can markup prices over marginal cost, indicating market power.';
+            } else {
+                document.getElementById('pcm-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function calculateLerner() {
+            const price = parseFloat(document.getElementById('price-li').value);
+            const cost = parseFloat(document.getElementById('cost-li').value);
+            if (!isNaN(price) && !isNaN(cost) && price > 0) {
+                const lerner = (price - cost) / price;
+                document.getElementById('lerner-result').textContent = 'Lerner Index: ' + lerner.toFixed(2);
+                document.getElementById('lerner-explanation').textContent = 'The Lerner Index shows the degree of market power, with values closer to 1 indicating stronger monopoly power.';
+            } else {
+                document.getElementById('lerner-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function calculateProfitMargin() {
+            const netProfit = parseFloat(document.getElementById('net-profit').value);
+            const totalRevenue = parseFloat(document.getElementById('total-revenue').value);
+            if (!isNaN(netProfit) && !isNaN(totalRevenue) && totalRevenue > 0) {
+                const profitMargin = (netProfit / totalRevenue) * 100;
+                document.getElementById('profit-margin-result').textContent = 'Profit Margin: ' + profitMargin.toFixed(2) + '%';
+                document.getElementById('profit-margin-explanation').textContent = 'This margin reflects how efficiently a firm converts revenue into profit, with higher values indicating stronger profitability.';
+            } else {
+                document.getElementById('profit-margin-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function calculateHHI() {
+            const marketShares = document.getElementById('market-shares').value.split(',').map(Number);
+            if (marketShares.every(share => !isNaN(share))) {
+                const hhi = marketShares.reduce((sum, share) => sum + (share ** 2), 0);
+                document.getElementById('hhi-result').textContent = 'Herfindahl-Hirschman Index: ' + hhi.toFixed(2);
+                document.getElementById('hhi-explanation').textContent = 'The HHI measures market concentration, with higher values indicating more concentrated markets and less competition.';
+            } else {
+                document.getElementById('hhi-result').textContent = 'Please enter valid market shares';
+            }
+        }
+
+        function calculateROA() {
+            const netIncome = parseFloat(document.getElementById('net-income').value);
+            const totalAssets = parseFloat(document.getElementById('total-assets').value);
+            if (!isNaN(netIncome) && !isNaN(totalAssets) && totalAssets > 0) {
+                const roa = (netIncome / totalAssets) * 100;
+                document.getElementById('roa-result').textContent = 'Return on Assets: ' + roa.toFixed(2) + '%';
+                document.getElementById('roa-explanation').textContent = 'ROA shows how efficiently a firm uses its assets to generate profit. Higher values indicate better asset utilization.';
+            } else {
+                document.getElementById('roa-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function calculateROE() {
+            const netIncome = parseFloat(document.getElementById('net-income-roe').value);
+            const equity = parseFloat(document.getElementById('shareholder-equity').value);
+            if (!isNaN(netIncome) && !isNaN(equity) && equity > 0) {
+                const roe = (netIncome / equity) * 100;
+                document.getElementById('roe-result').textContent = 'Return on Equity: ' + roe.toFixed(2) + '%';
+                document.getElementById('roe-explanation').textContent = 'ROE reflects how effectively a company uses shareholders\' equity to generate profit. Higher values indicate stronger financial performance.';
+            } else {
+                document.getElementById('roe-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function calculateCrossPriceElasticity() {
+            const changeInQuantity = parseFloat(document.getElementById('change-in-quantity').value);
+            const quantityX = parseFloat(document.getElementById('quantity-x').value);
+            const changeInPrice = parseFloat(document.getElementById('change-in-price').value);
+            const priceY = parseFloat(document.getElementById('price-y').value);
+            if (!isNaN(changeInQuantity) && !isNaN(quantityX) && !isNaN(changeInPrice) && !isNaN(priceY) && priceY > 0) {
+                const elasticity = (changeInQuantity / quantityX) / (changeInPrice / priceY);
+                document.getElementById('cross-price-elasticity-result').textContent = 'Cross-Price Elasticity: ' + elasticity.toFixed(2);
+                document.getElementById('cross-price-elasticity-explanation').textContent = 'Cross-price elasticity measures how demand for one good changes in response to a price change of another, indicating substitute or complementary relationships.';
+            } else {
+                document.getElementById('cross-price-elasticity-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function calculateEVA() {
+            const nopat = parseFloat(document.getElementById('nopat').value);
+            const capital = parseFloat(document.getElementById('capital').value);
+            const wacc = parseFloat(document.getElementById('wacc').value) / 100;
+            if (!isNaN(nopat) && !isNaN(capital) && !isNaN(wacc) && capital > 0) {
+                const eva = nopat - (capital * wacc);
+                document.getElementById('eva-result').textContent = 'Economic Value Added: ' + eva.toFixed(2);
+                document.getElementById('eva-explanation').textContent = 'EVA measures the value a company generates beyond the required return on its capital. Positive EVA indicates value creation for shareholders.';
+            } else {
+                document.getElementById('eva-result').textContent = 'Please enter valid values';
+            }
+        }
+    </script>
+
+</body>
+</html>
