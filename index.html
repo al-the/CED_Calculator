@@ -69,6 +69,18 @@
         .citations h3 {
             font-size: 1.2em;
             margin-bottom: 10px;
+         }
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #333;
+        }
+        .footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -180,8 +192,11 @@
                 <li><strong>Economic Value Added (EVA):</strong> Stern Stewart & Co. (1991). *The Quest for Value: The EVA Management Guide*. Wiley.</li>
             </ul>
         </div>
-    </div>
 
+        <div class="footer">
+        <p>About project: <a href="https://github.com/al-the/CED_Calculator/" target="_blank">CED_Calculator on GitHub</a></p>
+    </div>
+  
     <script>
         function changeCalculator() {
             const selectedValue = document.getElementById("calculation-type").value;
