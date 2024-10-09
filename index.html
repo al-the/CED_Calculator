@@ -101,7 +101,7 @@
         <h2>Economics Calculator</h2>
         <label for="calculation-type">Select Calculation Type:</label>
         <select id="calculation-type" onchange="changeCalculator()">
-            <option value="" selected disabled>Click here</option> <!-- Placeholder -->
+            <option value="" selected disabled>Click here</option>
             <option value="price-cost-margin">Price-Cost Margin (PCM)</option>
             <option value="lerner-index">Lerner Index</option>
             <option value="profit-margin">Profit Margin</option>
@@ -158,6 +158,7 @@
             <div class="result">
                 <p><strong>HHI:</strong> <span id="hhi-result">0</span></p>
                 <p><strong>Market Concentration:</strong> <span id="concentration-result"></span></p>
+                <p class="explanation" id="hhi-analysis"></p>
             </div>
         </div>
 
@@ -235,13 +236,16 @@
             }
         }
 
+        // PCM Calculation with Analysis
         function calculatePCM() {
             const price = parseFloat(document.getElementById('price').value);
             const cost = parseFloat(document.getElementById('cost').value);
             if (!isNaN(price) && !isNaN(cost) && price > 0) {
                 const pcm = (price - cost) / price;
                 document.getElementById('pcm-result').textContent = 'Price-Cost Margin: ' + pcm.toFixed(2);
-                document.getElementById('pcm-explanation').textContent = 'This result shows how much a firm can markup prices over marginal cost, indicating market power.';
+                document.getElementById('pcm-explanation').textContent = pcm > 0.5
+                    ? 'The firm has strong pricing power, as it can mark up prices significantly over marginal cost.'
+                    : 'The firm has weak pricing power, as it cannot mark up prices much over marginal cost.';
             } else {
                 document.getElementById('pcm-result').textContent = 'Please enter valid values';
             }
@@ -254,8 +258,51 @@
             document.getElementById('pcm-explanation').textContent = '';
         }
 
-        // Additional calculator functions (e.g., calculateLerner, resetLerner) would go here.
+        // Lerner Index Calculation with Analysis
+        function calculateLerner() {
+            const price = parseFloat(document.getElementById('price-li').value);
+            const cost = parseFloat(document.getElementById('cost-li').value);
+            if (!isNaN(price) && !isNaN(cost) && price > 0) {
+                const lerner = (price - cost) / price;
+                document.getElementById('lerner-result').textContent = 'Lerner Index: ' + lerner.toFixed(2);
+                document.getElementById('lerner-explanation').textContent = lerner > 0.4
+                    ? 'The firm has significant monopoly power.'
+                    : 'The firm has low monopoly power.';
+            } else {
+                document.getElementById('lerner-result').textContent = 'Please enter valid values';
+            }
+        }
 
+        function resetLerner() {
+            document.getElementById('price-li').value = '';
+            document.getElementById('cost-li').value = '';
+            document.getElementById('lerner-result').textContent = '';
+            document.getElementById('lerner-explanation').textContent = '';
+        }
+
+        // Profit Margin Calculation with Analysis
+        function calculateProfitMargin() {
+            const netProfit = parseFloat(document.getElementById('net-profit').value);
+            const totalRevenue = parseFloat(document.getElementById('total-revenue').value);
+            if (!isNaN(netProfit) && !isNaN(totalRevenue) && totalRevenue > 0) {
+                const profitMargin = (netProfit / totalRevenue) * 100;
+                document.getElementById('profit-margin-result').textContent = 'Profit Margin: ' + profitMargin.toFixed(2) + '%';
+                document.getElementById('profit-margin-explanation').textContent = profitMargin > 20
+                    ? 'The company is highly profitable with a strong margin.'
+                    : 'The company has a low profit margin, indicating efficiency issues or high costs.';
+            } else {
+                document.getElementById('profit-margin-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function resetProfitMargin() {
+            document.getElementById('net-profit').value = '';
+            document.getElementById('total-revenue').value = '';
+            document.getElementById('profit-margin-result').textContent = '';
+            document.getElementById('profit-margin-explanation').textContent = '';
+        }
+
+        // HHI Calculation with Analysis
         function addFirm() {
             const inputContainer = document.getElementById("inputs");
             const input = document.createElement("input");
@@ -281,15 +328,21 @@
 
             document.getElementById('hhi-result').textContent = hhi.toFixed(2);
             let concentration = '';
+            let analysis = '';
+
             if (hhi < 1500) {
                 concentration = 'Low Concentration';
+                analysis = 'The market is competitive, with a large number of small firms.';
             } else if (hhi >= 1500 && hhi <= 2500) {
                 concentration = 'Moderate Concentration';
+                analysis = 'The market is moderately concentrated, with some market power held by a few firms.';
             } else {
                 concentration = 'High Concentration';
+                analysis = 'The market is highly concentrated, indicating a few firms dominate.';
             }
 
             document.getElementById('concentration-result').textContent = concentration;
+            document.getElementById('hhi-analysis').textContent = analysis;
         }
 
         function resetHHI() {
@@ -300,6 +353,101 @@
             document.getElementsByClassName('market-share')[0].value = '';
             document.getElementById('hhi-result').textContent = '0';
             document.getElementById('concentration-result').textContent = '';
+            document.getElementById('hhi-analysis').textContent = '';
+        }
+
+        // ROA Calculation with Analysis
+        function calculateROA() {
+            const netIncome = parseFloat(document.getElementById('net-income').value);
+            const totalAssets = parseFloat(document.getElementById('total-assets').value);
+            if (!isNaN(netIncome) && !isNaN(totalAssets) && totalAssets > 0) {
+                const roa = (netIncome / totalAssets) * 100;
+                document.getElementById('roa-result').textContent = 'Return on Assets: ' + roa.toFixed(2) + '%';
+                document.getElementById('roa-explanation').textContent = roa > 10
+                    ? 'The company is efficiently using its assets to generate profit.'
+                    : 'The company has low asset efficiency, indicating potential operational issues.';
+            } else {
+                document.getElementById('roa-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function resetROA() {
+            document.getElementById('net-income').value = '';
+            document.getElementById('total-assets').value = '';
+            document.getElementById('roa-result').textContent = '';
+            document.getElementById('roa-explanation').textContent = '';
+        }
+
+        // ROE Calculation with Analysis
+        function calculateROE() {
+            const netIncome = parseFloat(document.getElementById('net-income-roe').value);
+            const equity = parseFloat(document.getElementById('shareholder-equity').value);
+            if (!isNaN(netIncome) && !isNaN(equity) && equity > 0) {
+                const roe = (netIncome / equity) * 100;
+                document.getElementById('roe-result').textContent = 'Return on Equity: ' + roe.toFixed(2) + '%';
+                document.getElementById('roe-explanation').textContent = roe > 15
+                    ? 'The company is delivering strong returns to shareholders.'
+                    : 'The company is delivering weak returns to shareholders.';
+            } else {
+                document.getElementById('roe-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function resetROE() {
+            document.getElementById('net-income-roe').value = '';
+            document.getElementById('shareholder-equity').value = '';
+            document.getElementById('roe-result').textContent = '';
+            document.getElementById('roe-explanation').textContent = '';
+        }
+
+        // Cross-Price Elasticity Calculation with Analysis
+        function calculateCrossPriceElasticity() {
+            const changeInQuantity = parseFloat(document.getElementById('change-in-quantity').value);
+            const quantityX = parseFloat(document.getElementById('quantity-x').value);
+            const changeInPrice = parseFloat(document.getElementById('change-in-price').value);
+            const priceY = parseFloat(document.getElementById('price-y').value);
+            if (!isNaN(changeInQuantity) && !isNaN(quantityX) && !isNaN(changeInPrice) && !isNaN(priceY) && priceY > 0) {
+                const elasticity = (changeInQuantity / quantityX) / (changeInPrice / priceY);
+                document.getElementById('cross-price-elasticity-result').textContent = 'Cross-Price Elasticity: ' + elasticity.toFixed(2);
+                document.getElementById('cross-price-elasticity-explanation').textContent = elasticity > 0
+                    ? 'The two goods are substitutes: an increase in the price of one leads to an increase in demand for the other.'
+                    : 'The two goods are complements: an increase in the price of one leads to a decrease in demand for the other.';
+            } else {
+                document.getElementById('cross-price-elasticity-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function resetCrossPriceElasticity() {
+            document.getElementById('change-in-quantity').value = '';
+            document.getElementById('quantity-x').value = '';
+            document.getElementById('change-in-price').value = '';
+            document.getElementById('price-y').value = '';
+            document.getElementById('cross-price-elasticity-result').textContent = '';
+            document.getElementById('cross-price-elasticity-explanation').textContent = '';
+        }
+
+        // EVA Calculation with Analysis
+        function calculateEVA() {
+            const nopat = parseFloat(document.getElementById('nopat').value);
+            const capital = parseFloat(document.getElementById('capital').value);
+            const wacc = parseFloat(document.getElementById('wacc').value) / 100;
+            if (!isNaN(nopat) && !isNaN(capital) && !isNaN(wacc) && capital > 0) {
+                const eva = nopat - (capital * wacc);
+                document.getElementById('eva-result').textContent = 'Economic Value Added: ' + eva.toFixed(2);
+                document.getElementById('eva-explanation').textContent = eva > 0
+                    ? 'The company is generating value beyond the required return on its capital.'
+                    : 'The company is destroying value, as its returns do not cover the cost of capital.';
+            } else {
+                document.getElementById('eva-result').textContent = 'Please enter valid values';
+            }
+        }
+
+        function resetEVA() {
+            document.getElementById('nopat').value = '';
+            document.getElementById('capital').value = '';
+            document.getElementById('wacc').value = '';
+            document.getElementById('eva-result').textContent = '';
+            document.getElementById('eva-explanation').textContent = '';
         }
     </script>
 
