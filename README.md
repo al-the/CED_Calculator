@@ -146,6 +146,110 @@ EVA measures the value a company generates from funds invested in it, after acco
 
 ---
 
+### SSNIP (Small but Significant Non-Transitory Increase in Price)
+The SSNIP test assesses whether a small but significant increase in price would be profitable in a particular market.
+
+#### **Formula:**
+![image](https://github.com/user-attachments/assets/bc67657c-7767-4429-968f-e54a8ece1008)
+
+
+#### **How to Use:**
+1. Input the **Price**.
+2. Input the **Marginal Cost**.
+3. Input the **Price Elasticity of Demand**.
+4. Click **Calculate** to determine if a price increase is profitable.
+
+---
+
+### Damage and Penalty Calculations (Overcharges and Pass-Through Rate)
+This calculation assesses damages due to anti-competitive behavior.
+
+#### **Formula:**
+![image](https://github.com/user-attachments/assets/b1b7472f-d31b-4667-8820-cf026ab1f5b6)
+
+
+#### **How to Use:**
+1. Input the **Cartel Price**.
+2. Input the **Competitive Price**.
+3. Input the **Penalty Rate**.
+4. Click **Calculate** to determine the Overcharge and Penalty.
+
+---
+
+### Net Present Value (NPV) of Damages
+NPV calculates the present value of future cash flows or damages, considering the discount rate.
+
+#### **Formula:**
+![image](https://github.com/user-attachments/assets/306c6083-d6f3-4da9-b6db-f825dcf5ba42)
+
+
+#### **How to Use:**
+1. Input the **Future Cash Flow**.
+2. Input the **Discount Rate**.
+3. Input the **Time Period (in years)**.
+4. Click **Calculate** to find the NPV of Damages.
+
+---
+
+### Welfare Loss (Deadweight Loss)
+Welfare loss measures the economic inefficiency resulting from anti-competitive behavior.
+
+#### **Formula:**
+![image](https://github.com/user-attachments/assets/94235182-7917-40b5-aa3e-bcc6a1741e78)
+
+
+#### **How to Use:**
+1. Input the **Change in Price**.
+2. Input the **Change in Quantity**.
+3. Click **Calculate** to determine the Welfare Loss.
+
+---
+
+### Critical Loss Analysis
+Critical loss analysis determines how much sales volume a firm can lose before a price increase becomes unprofitable.
+
+#### **Formula:**
+![image](https://github.com/user-attachments/assets/71a86e3e-3cf1-4b8d-b67f-920a5dc7a531)
+
+
+#### **How to Use:**
+1. Input the **Price**.
+2. Input the **Marginal Cost**.
+3. Click **Calculate** to determine the Critical Loss.
+
+---
+
+### Residual Demand Elasticity
+Residual demand elasticity measures how much demand remains after competitors raise prices.
+
+#### **Formula:**
+![image](https://github.com/user-attachments/assets/79862cb4-5589-4307-bc24-572a02662c5d)
+
+Where:
+- \( \eta_{market} \) is the market elasticity.
+- \( S \) is the firm's market share.
+
+#### **How to Use:**
+1. Input the **Market Elasticity**.
+2. Input the **Firm's Market Share**.
+3. Click **Calculate** to find the Residual Demand Elasticity.
+
+---
+
+### Profit Impact of Market Power (PIMP)
+PIMP measures the increase in profitability due to market power.
+
+#### **Formula:**
+![image](https://github.com/user-attachments/assets/f98ebaa3-5281-44c1-965b-f09131750fb6)
+
+
+#### **How to Use:**
+1. Input the **Price**.
+2. Input the **Marginal Cost**.
+3. Click **Calculate** to find the PIMP.
+
+---
+
 ## How to Use
 
 1. Open the web-based **Competition Economics Calculator**.
