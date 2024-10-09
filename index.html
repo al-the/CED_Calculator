@@ -55,6 +55,12 @@
         .calculator-container button:hover {
             background-color: #45a049;
         }
+        .calculator-container .reset-button {
+            background-color: #f44336;
+        }
+        .calculator-container .reset-button:hover {
+            background-color: #d32f2f;
+        }
         .explanation {
             margin-top: 20px;
             font-size: 0.9em;
@@ -69,9 +75,14 @@
         .citations h3 {
             font-size: 1.2em;
             margin-bottom: 10px;
-         }
+        }
         .calculator {
-            display: none; /* All calculators are hidden initially */
+            display: none;
+        }
+        @media screen and (max-width: 600px) {
+            .calculator-container {
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -102,6 +113,7 @@
             <input type="number" id="price" placeholder="Enter Price (P)" />
             <input type="number" id="cost" placeholder="Enter Marginal Cost (MC)" />
             <button onclick="calculatePCM()">Calculate PCM</button>
+            <button class="reset-button" onclick="resetPCM()">Reset</button>
             <p id="pcm-result"></p>
             <p class="explanation" id="pcm-explanation"></p>
         </div>
@@ -112,6 +124,7 @@
             <input type="number" id="price-li" placeholder="Enter Price (P)" />
             <input type="number" id="cost-li" placeholder="Enter Marginal Cost (MC)" />
             <button onclick="calculateLerner()">Calculate Lerner Index</button>
+            <button class="reset-button" onclick="resetLerner()">Reset</button>
             <p id="lerner-result"></p>
             <p class="explanation" id="lerner-explanation"></p>
         </div>
@@ -122,6 +135,7 @@
             <input type="number" id="net-profit" placeholder="Enter Net Profit" />
             <input type="number" id="total-revenue" placeholder="Enter Total Revenue" />
             <button onclick="calculateProfitMargin()">Calculate Profit Margin</button>
+            <button class="reset-button" onclick="resetProfitMargin()">Reset</button>
             <p id="profit-margin-result"></p>
             <p class="explanation" id="profit-margin-explanation"></p>
         </div>
@@ -133,10 +147,9 @@
             <div id="inputs">
                 <input type="number" min="0" max="100" placeholder="Firm 1 (%)" class="market-share"><br>
             </div>
-
             <button onclick="addFirm()">Add Another Firm</button>
             <button onclick="calculateHHI()">Calculate HHI</button>
-
+            <button class="reset-button" onclick="resetHHI()">Reset</button>
             <div class="result">
                 <p><strong>HHI:</strong> <span id="hhi-result">0</span></p>
                 <p><strong>Market Concentration:</strong> <span id="concentration-result"></span></p>
@@ -149,6 +162,7 @@
             <input type="number" id="net-income" placeholder="Enter Net Income" />
             <input type="number" id="total-assets" placeholder="Enter Total Assets" />
             <button onclick="calculateROA()">Calculate ROA</button>
+            <button class="reset-button" onclick="resetROA()">Reset</button>
             <p id="roa-result"></p>
             <p class="explanation" id="roa-explanation"></p>
         </div>
@@ -159,6 +173,7 @@
             <input type="number" id="net-income-roe" placeholder="Enter Net Income" />
             <input type="number" id="shareholder-equity" placeholder="Enter Shareholder's Equity" />
             <button onclick="calculateROE()">Calculate ROE</button>
+            <button class="reset-button" onclick="resetROE()">Reset</button>
             <p id="roe-result"></p>
             <p class="explanation" id="roe-explanation"></p>
         </div>
@@ -171,6 +186,7 @@
             <input type="number" id="change-in-price" placeholder="Enter Change in Price of Good Y" />
             <input type="number" id="price-y" placeholder="Enter Price of Good Y" />
             <button onclick="calculateCrossPriceElasticity()">Calculate Cross-Price Elasticity</button>
+            <button class="reset-button" onclick="resetCrossPriceElasticity()">Reset</button>
             <p id="cross-price-elasticity-result"></p>
             <p class="explanation" id="cross-price-elasticity-explanation"></p>
         </div>
@@ -182,24 +198,25 @@
             <input type="number" id="capital" placeholder="Enter Capital Invested" />
             <input type="number" id="wacc" placeholder="Enter Weighted Average Cost of Capital (WACC)" />
             <button onclick="calculateEVA()">Calculate EVA</button>
+            <button class="reset-button" onclick="resetEVA()">Reset</button>
             <p id="eva-result"></p>
             <p class="explanation" id="eva-explanation"></p>
         </div>
-    </div>
 
-    <!-- Citations Section -->
-    <div class="citations">
-        <h3>References :</h3>
-        <ul>
-            <li><strong>Price-Cost Margin (PCM):</strong> Varian, H. R. (1992). Microeconomic Analysis. 3rd ed. W.W. Norton & Company.</li>
-            <li><strong>Lerner Index:</strong> Lerner, A. P. (1934). The Concept of Monopoly and the Measurement of Monopoly Power. The Review of Economic Studies, 1(3), pp.157-175.</li>
-            <li><strong>Profit Margin:</strong> Ross, S.A., Westerfield, R.W., and Jaffe, J. (2012). Corporate Finance. 10th ed. McGraw-Hill/Irwin.</li>
-            <li><strong>Herfindahl-Hirschman Index (HHI):</strong> Hirschman, A. O. (1964). The Paternity of an Index. The American Economic Review, 54(5), pp.761-762.</li>
-            <li><strong>Return on Assets (ROA):</strong> Brigham, E.F. and Ehrhardt, M.C. (2011). Financial Management: Theory & Practice. 13th ed. South-Western Cengage Learning.</li>
-            <li><strong>Return on Equity (ROE):</strong> Higgins, R.C. (2009). Analysis for Financial Management. 9th ed. McGraw-Hill/Irwin.</li>
-            <li><strong>Cross-Price Elasticity:</strong> Pindyck, R.S. and Rubinfeld, D.L. (2009). Microeconomics. 7th ed. Pearson.</li>
-            <li><strong>Economic Value Added (EVA):</strong> Stern Stewart & Co. (1991). The Quest for Value: The EVA Management Guide. Wiley.</li>
-        </ul>
+        <!-- Citations Section -->
+        <div class="citations">
+            <h3>References :</h3>
+            <ul>
+                <li><strong>Price-Cost Margin (PCM):</strong> Varian, H. R. (1992). Microeconomic Analysis. 3rd ed. W.W. Norton & Company.</li>
+                <li><strong>Lerner Index:</strong> Lerner, A. P. (1934). The Concept of Monopoly and the Measurement of Monopoly Power. The Review of Economic Studies, 1(3), pp.157-175.</li>
+                <li><strong>Profit Margin:</strong> Ross, S.A., Westerfield, R.W., and Jaffe, J. (2012). Corporate Finance. 10th ed. McGraw-Hill/Irwin.</li>
+                <li><strong>Herfindahl-Hirschman Index (HHI):</strong> Hirschman, A. O. (1964). The Paternity of an Index. The American Economic Review, 54(5), pp.761-762.</li>
+                <li><strong>Return on Assets (ROA):</strong> Brigham, E.F. and Ehrhardt, M.C. (2011). Financial Management: Theory & Practice. 13th ed. South-Western Cengage Learning.</li>
+                <li><strong>Return on Equity (ROE):</strong> Higgins, R.C. (2009). Analysis for Financial Management. 9th ed. McGraw-Hill/Irwin.</li>
+                <li><strong>Cross-Price Elasticity:</strong> Pindyck, R.S. and Rubinfeld, D.L. (2009). Microeconomics. 7th ed. Pearson.</li>
+                <li><strong>Economic Value Added (EVA):</strong> Stern Stewart & Co. (1991). The Quest for Value: The EVA Management Guide. Wiley.</li>
+            </ul>
+        </div>
     </div>
 
     <script>
@@ -223,6 +240,13 @@
             }
         }
 
+        function resetPCM() {
+            document.getElementById('price').value = '';
+            document.getElementById('cost').value = '';
+            document.getElementById('pcm-result').textContent = '';
+            document.getElementById('pcm-explanation').textContent = '';
+        }
+
         function calculateLerner() {
             const price = parseFloat(document.getElementById('price-li').value);
             const cost = parseFloat(document.getElementById('cost-li').value);
@@ -235,6 +259,13 @@
             }
         }
 
+        function resetLerner() {
+            document.getElementById('price-li').value = '';
+            document.getElementById('cost-li').value = '';
+            document.getElementById('lerner-result').textContent = '';
+            document.getElementById('lerner-explanation').textContent = '';
+        }
+
         function calculateProfitMargin() {
             const netProfit = parseFloat(document.getElementById('net-profit').value);
             const totalRevenue = parseFloat(document.getElementById('total-revenue').value);
@@ -245,6 +276,13 @@
             } else {
                 document.getElementById('profit-margin-result').textContent = 'Please enter valid values';
             }
+        }
+
+        function resetProfitMargin() {
+            document.getElementById('net-profit').value = '';
+            document.getElementById('total-revenue').value = '';
+            document.getElementById('profit-margin-result').textContent = '';
+            document.getElementById('profit-margin-explanation').textContent = '';
         }
 
         function addFirm() {
@@ -283,6 +321,16 @@
             document.getElementById('concentration-result').textContent = concentration;
         }
 
+        function resetHHI() {
+            const marketShares = document.getElementsByClassName('market-share');
+            while (marketShares.length > 1) {
+                marketShares[marketShares.length - 1].remove();
+            }
+            document.getElementById('market-shares').value = '';
+            document.getElementById('hhi-result').textContent = '0';
+            document.getElementById('concentration-result').textContent = '';
+        }
+
         function calculateROA() {
             const netIncome = parseFloat(document.getElementById('net-income').value);
             const totalAssets = parseFloat(document.getElementById('total-assets').value);
@@ -295,6 +343,13 @@
             }
         }
 
+        function resetROA() {
+            document.getElementById('net-income').value = '';
+            document.getElementById('total-assets').value = '';
+            document.getElementById('roa-result').textContent = '';
+            document.getElementById('roa-explanation').textContent = '';
+        }
+
         function calculateROE() {
             const netIncome = parseFloat(document.getElementById('net-income-roe').value);
             const equity = parseFloat(document.getElementById('shareholder-equity').value);
@@ -305,6 +360,13 @@
             } else {
                 document.getElementById('roe-result').textContent = 'Please enter valid values';
             }
+        }
+
+        function resetROE() {
+            document.getElementById('net-income-roe').value = '';
+            document.getElementById('shareholder-equity').value = '';
+            document.getElementById('roe-result').textContent = '';
+            document.getElementById('roe-explanation').textContent = '';
         }
 
         function calculateCrossPriceElasticity() {
@@ -321,6 +383,15 @@
             }
         }
 
+        function resetCrossPriceElasticity() {
+            document.getElementById('change-in-quantity').value = '';
+            document.getElementById('quantity-x').value = '';
+            document.getElementById('change-in-price').value = '';
+            document.getElementById('price-y').value = '';
+            document.getElementById('cross-price-elasticity-result').textContent = '';
+            document.getElementById('cross-price-elasticity-explanation').textContent = '';
+        }
+
         function calculateEVA() {
             const nopat = parseFloat(document.getElementById('nopat').value);
             const capital = parseFloat(document.getElementById('capital').value);
@@ -332,6 +403,14 @@
             } else {
                 document.getElementById('eva-result').textContent = 'Please enter valid values';
             }
+        }
+
+        function resetEVA() {
+            document.getElementById('nopat').value = '';
+            document.getElementById('capital').value = '';
+            document.getElementById('wacc').value = '';
+            document.getElementById('eva-result').textContent = '';
+            document.getElementById('eva-explanation').textContent = '';
         }
     </script>
 
