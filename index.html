@@ -8,108 +8,97 @@
     <title>Competition Economics Calculator</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #333333;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
-        .header {
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3em;
-            letter-spacing: 1px;
-            font-weight: 500;
-            color: #C0A060;
-        }
-        .header h2 {
-            font-size: 1.8em;
-            color: #777;
-        }
-        .calculator-container {
-            width: 100%;
-            max-width: 500px;
-            padding: 30px;
-            background-color: #f5f5f5;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin: 30px auto;
-        }
+ body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 10px; /* Adjusted for smaller screens */
+}
 
-        .calculator-container input,
-        .calculator-container select,
-        .calculator-container button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            box-sizing: border-box;
-        }
-        .calculator-container button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .calculator-container button:hover {
-            background-color: #45a049;
-        }
-        .calculator-container select {
-            text-align: center;
-            text-align-last: center;
-        }
-        .calculator-container .reset-button {
-            background-color: #f44336;
-        }
-        .calculator-container .reset-button:hover {
-            background-color: #d32f2f;
-        }
-        .explanation {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #333;
-        }
-        .citations {
-            margin-top: 20px;
-            font-size: 0.9em;
-            text-align: left;
-            color: #555;
-        }
-        .citations h3 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-         }
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9em;
-            color: #333;
-            }
-        .footer a {
-            color: #4CAF50;
-            text-decoration: none;
-            }
-        .footer a:hover {
-            text-decoration: underline;
-            }
+.header {
+    margin-bottom: 20px;
+}
 
+.header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem; /* Responsive font size */
+    letter-spacing: 1px;
+    font-weight: 500;
+    color: #C0A060;
+}
 
-        .calculator {
-            display: none;
-        }
-        @media screen and (max-width: 600px) {
-            .calculator-container {
-                width: 100%;
-            }
-        }
+.header h2 {
+    font-size: 1.5rem; /* Responsive font size */
+    color: #777;
+}
+
+.calculator-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px; /* Reduced padding for smaller screens */
+    background-color: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+}
+
+.calculator-container input,
+.calculator-container select,
+.calculator-container button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+.calculator-container button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.calculator-container button:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 600px) {
+    .calculator-container {
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+    .header h1 {
+        font-size: 2rem; /* Adjust heading size */
+    }
+    .header h2 {
+        font-size: 1.2rem;
+    }
+    .calculator-container input,
+    .calculator-container select,
+    .calculator-container button {
+        padding: 8px; /* Smaller input sizes */
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .calculator-container {
+        padding: 10px;
+    }
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    .header h2 {
+        font-size: 1rem;
+    }
+}
+
        
         
     </style>
