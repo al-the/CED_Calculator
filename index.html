@@ -6,9 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competition Economics Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
             text-align: center;
             display: flex;
             justify-content: center;
@@ -16,30 +19,33 @@
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
-            background-color: #f9f9f9;
             padding: 20px;
         }
         .header {
             margin-bottom: 20px;
         }
         .header h1 {
-            font-size: 2em;
-            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            letter-spacing: 1px;
+            font-weight: 500;
+            color: #C0A060;
         }
         .header h2 {
-            font-size: 1.5em;
-            color: gray;
-            margin-top: 5px;
+            font-size: 1.8em;
+            color: #777;
         }
         .calculator-container {
             width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            background-color: white;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            padding: 30px;
+            background-color: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 30px auto;
         }
+
         .calculator-container input,
         .calculator-container select,
         .calculator-container button {
@@ -327,29 +333,6 @@
             <p id="eva-result"></p>
             <p class="explanation" id="eva-explanation"></p>
         </div>
-
-      <!-- Citations Section (Styled as Footer) -->
-<div class="citations" style="font-size: 0.8em; color: #555; margin-top: 30px; padding: 15px; border-top: 1px solid #ccc;">
-    <h3>References :</h3>
-    <ul style="list-style-type: none; padding-left: 0;">
-        <li><strong>Price-Cost Margin (PCM):</strong> Varian, H. R. (1992). Microeconomic Analysis. 3rd ed. W.W. Norton & Company.</li>
-        <li><strong>Lerner Index:</strong> Lerner, A. P. (1934). The Concept of Monopoly and the Measurement of Monopoly Power. The Review of Economic Studies, 1(3), pp.157-175.</li>
-        <li><strong>Profit Margin:</strong> Ross, S.A., Westerfield, R.W., and Jaffe, J. (2012). Corporate Finance. 10th ed. McGraw-Hill/Irwin.</li>
-        <li><strong>Herfindahl-Hirschman Index (HHI):</strong> Hirschman, A. O. (1964). The Paternity of an Index. The American Economic Review, 54(5), pp.761-762.</li>
-        <li><strong>Return on Assets (ROA):</strong> Brigham, E.F. and Ehrhardt, M.C. (2011). Financial Management: Theory & Practice. 13th ed. South-Western Cengage Learning.</li>
-        <li><strong>Return on Equity (ROE):</strong> Higgins, R.C. (2009). Analysis for Financial Management. 9th ed. McGraw-Hill/Irwin.</li>
-        <li><strong>Cross-Price Elasticity:</strong> Pindyck, R.S. and Rubinfeld, D.L. (2009). Microeconomics. 7th ed. Pearson.</li>
-        <li><strong>Economic Value Added (EVA):</strong> Stern Stewart & Co. (1991). The Quest for Value: The EVA Management Guide. Wiley.</li>
-        <li><strong>SSNIP:</strong> Motta, M. (2004). Competition Policy: Theory and Practice. 1st ed. Cambridge: Cambridge University Press, pp. 102-105.</li>
-        <li><strong>Price Elasticity of Demand (PED):</strong> Pindyck, R.S. and Rubinfeld, D.L. (2017). Microeconomics. 9th ed. New York: Pearson, pp. 37-39.</li>
-        <li><strong>Damage and Penalty Calculations:</strong> Connor, J.M. (2014). Price-Fixing Overcharges: Legal and Economic Evidence. Research in Law and Economics, 26(2), pp. 53-72.</li>
-        <li><strong>Net Present Value (NPV):</strong> Brealey, R.A., Myers, S.C. and Allen, F. (2017). Principles of Corporate Finance. 12th ed. New York: McGraw-Hill Education, pp. 75-80.</li>
-        <li><strong>Welfare Loss (Deadweight Loss):</strong> Tirole, J. (1988). The Theory of Industrial Organization. 1st ed. Cambridge: MIT Press, pp. 65-70.</li>
-        <li><strong>Critical Loss Analysis:</strong> Harris, B.C. and Simons, J.J. (1989). Focusing Market Definition: How Much Substitution Is Necessary? Research in Law and Economics, 12, pp. 207-226.</li>
-        <li><strong>Residual Demand Elasticity:</strong> Werden, G.J. and Froeb, L.M. (1994). The Effects of Mergers in Differentiated Products Industries: Logit Demand and Merger Policy. Journal of Law, Economics, and Organization, 10(2), pp. 407-426.</li>
-        <li><strong>Profit Impact of Market Power (PIMP):</strong> Lerner, A.P. (1934). The Concept of Monopoly and the Measurement of Monopoly Power. Review of Economic Studies, 1(3), pp. 157-175.</li>
-    </ul>
-</div>
 
 
       <!-- About Project Footer -->
