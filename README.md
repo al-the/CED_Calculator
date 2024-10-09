@@ -1,7 +1,7 @@
 
 # Competition Economics Calculator
 
-This project aims to empower regulators and economists with the tools to make data-driven, informed decisions that foster fair competition and enhance market transparency. By providing accessible, intuitive calculators, we aim to democratize competition analysis, making it easy for anyone to measure key economic indicators and understand market dynamics..
+This project aims to empower policymakers, regulators and economists with the tools to make data-driven, informed decisions that foster fair competition and enhance market transparency. By providing accessible, intuitive calculators, we aim to democratize competition analysis, making it easy for anyone to measure key economic indicators and understand market dynamics..
 
 ---
 
