@@ -30,10 +30,14 @@
             margin: 0;
         }
         .header h2 {
-            font-size: 2.1em;
+            font-size: 2.0em;
             color: gray;
             margin-top: 5px;
         }
+	.header h3 {
+            font-size: 1.9em;
+            margin: 0;
+	}    
         .calculator-container {
             width: 100%;
             max-width: 600px;
@@ -125,7 +129,7 @@
     </div>
 
     <div class="calculator-container">
-        <h2>Economics Calculator</h2>
+        <h3>Economics Calculator</h3>
         <label for="calculation-type">Select Calculation Type:</label>
         <select id="calculation-type" onchange="changeCalculator()">
             <option value="" selected disabled>Click here</option>
